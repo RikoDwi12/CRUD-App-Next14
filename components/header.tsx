@@ -34,9 +34,13 @@ export default function Header() {
 
   return (
     <>
+      {/* header */}
       <header className="bg-[#2C2C2C] px-[64px] h-[72px]  justify-between lg:flex hidden fixed w-full z-50">
-        <div className="flex items-center">
-          <Link href={"/home"}></Link>
+        <div className="flex items-center gap-2">
+          <div className="bg-white rounded-full">
+            <Image src="/logo.png" alt="logo" width={50} height={50} />
+          </div>
+          <div className="text-white">Mobil`Ins</div>
         </div>
         <div className=" flex flex-row gap-4 justify-center items-center">
           <div className="  text-nowrap cursor-pointer">
@@ -45,7 +49,7 @@ export default function Header() {
             </Link>
           </div>
           <div className=" text-nowrap text-[16px]">
-            <p>Product</p>
+            <p>About</p>
           </div>
           <div className="text-nowrap text-[16px]">
             <Link
@@ -60,7 +64,7 @@ export default function Header() {
             <div className="bg-white"></div>
           </div>
 
-          <div className=" rounded-full object-cover overflow-hidden w-[40px] h-[40px] ">
+          {/* <div className=" rounded-full object-cover overflow-hidden w-[40px] h-[40px] ">
             <Image
               src="https://akcdn.detik.net.id/community/media/visual/2021/04/22/zaitaku-iyada-2_11.jpeg"
               alt="image"
@@ -68,7 +72,7 @@ export default function Header() {
               height={40}
               className="w-full h-full"
             />
-          </div>
+          </div> */}
         </div>
       </header>
 

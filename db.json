@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "nama": "kokmo",
+      "stock": 1,
+      "deskripsi": "ihjh",
+      "imageURL": "https://images.unsplash.com/photo-1551830820-330a71b99659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTQ2MDgwOQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "id": "2"
+    },
+    {
+      "nama": "Mobil",
+      "stock": 1,
+      "deskripsi": "Mobil toyota memiliki interior dan body yang ",
+      "imageURL": "https://images.unsplash.com/photo-1559416523-140ddc3d238c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ix\"id\"=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MDE0MjIxNg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "stock": 0,
+      "nama": "Lamborghini",
+      "deskripsi": "Mobil Lamborghini memiliki interior dan body ",
+      "imageURL": "https://images.unsplash.com/photo-1621135802920-133df287f89c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ix\"id\"=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NjA0MjYyNw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
+    },
+    {
+      "id": "6e84",
+      "nama": "Mobil",
+      "deskripsi": "Mobil",
+      "imageURL": "https://images.unsplash.com/photo-1551830820-330a71b99659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTQ2MDgwOQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
+    },
+    {
+      "id": "d304",
+      "nama": "Mobil",
+      "deskripsi": "asw",
+      "imageURL": "https://images.unsplash.com/photo-1551830820-330a71b99659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTQ2MDgwOQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080"
+    }
+  ]
+}

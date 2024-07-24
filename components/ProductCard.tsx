@@ -2,7 +2,7 @@
 
 // src/components/CardProduk.tsx
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { AiTwotoneEdit } from "react-icons/ai";
 import ProductEdit from "./ProductEdit";
@@ -10,6 +10,7 @@ import ProductEdit from "./ProductEdit";
 type CardProdukProps = {
   id: number;
   nama: string;
+  stock: number;
   deskripsi: string;
   imageURL: string;
   onDeleteProduct: (id: number) => void;
@@ -19,6 +20,7 @@ type CardProdukProps = {
 const ProductCard: React.FC<CardProdukProps> = ({
   id,
   nama,
+  stock,
   deskripsi,
   imageURL,
   onDeleteProduct,
@@ -30,9 +32,27 @@ const ProductCard: React.FC<CardProdukProps> = ({
 
   const kurangProducut = () => {
     setJumlahProduct(jumlahProduct - 1);
+    console.log(jumlahProduct);
   };
+
+  useEffect(() => {
+    console.log("pertama render");
+  }, []);
+
+  useEffect(() => {
+    console.log("selalu dirender");
+  });
+
+  useEffect(() => {
+    console.log("selalu dirender saat jumlah prod berubah", jumlahProduct);
+    const before = jumlahProduct;
+    console.log(before, "before");
+    // jumlahProduct > stock && alert("stok kosong");
+    // jumlahProduct > stock && setJumlahProduct(before);
+  }, [jumlahProduct]);
   const tambahProducut = () => {
-    setJumlahProduct(jumlahProduct + 1);
+    setJumlahProduct(jumlahProduct < stock ? jumlahProduct + 1 : stock);
+    // setJumlahProduct(jumlahProduct + 1);
   };
 
   const handleDelete = () => {
@@ -50,6 +70,49 @@ const ProductCard: React.FC<CardProdukProps> = ({
 
   const cancdelEdit = () => {
     setShowEdit(false);
+  };
+
+  const AddCardComponent = () => {
+    return (
+      <div className="flex flex-row">
+        {jumlahProduct > 0 ? (
+          <>
+            <button
+              onClick={kurangProducut}
+              className="px-2  bg-gray-300 hover:bg-gray-400 rounded"
+            >
+              -
+            </button>
+            <div className="text-xl font-bold text-black">{jumlahProduct}</div>
+            <button
+              onClick={tambahProducut}
+              className="px-2  bg-gray-300 hover:bg-gray-400 rounded"
+            >
+              +
+            </button>
+          </>
+        ) : (
+          <div
+            onClick={tambahProducut}
+            className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-300"
+          >
+            <button>keranjang</button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 ml-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a1 1 0 0 1-1-1v-6H5a1 1 0 0 1 0-2h4V3a1 1 0 0 1 2 0v5h4a1 1 0 0 1 0 2h-4v6a1 1 0 0 1-1 1z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+        )}
+      </div>
+    );
   };
   return (
     <div className="div wraper">
@@ -85,45 +148,19 @@ const ProductCard: React.FC<CardProdukProps> = ({
             {nama}
           </h2>
           <p className="text-gray-700 text-[12px]">{deskripsi}</p>
+          {/* div keranjang */}
           <div className="border-2 border-black flex flex-row items-center justify-center space-x-4 p-2 rounded">
-            {jumlahProduct > 0 ? (
-              <>
-                <button
-                  onClick={kurangProducut}
-                  className="px-2  bg-gray-300 hover:bg-gray-400 rounded"
-                >
-                  -
-                </button>
-                <div className="text-xl font-bold text-black">
-                  {jumlahProduct}
-                </div>
-                <button
-                  onClick={tambahProducut}
-                  className="px-2  bg-gray-300 hover:bg-gray-400 rounded"
-                >
-                  +
-                </button>{" "}
-              </>
-            ) : (
-              <div
-                onClick={tambahProducut}
-                className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-300"
-              >
-                <button>keranjang</button>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 ml-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a1 1 0 0 1-1-1v-6H5a1 1 0 0 1 0-2h4V3a1 1 0 0 1 2 0v5h4a1 1 0 0 1 0 2h-4v6a1 1 0 0 1-1 1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+            {
+              <div className="text-xl font-bold text-black ">
+                {stock > 0 ? (
+                  <AddCardComponent />
+                ) : (
+                  <div className="flex items-center bg-slate-300 text-white px-4 py-2 rounded-md  ">
+                    Sold Out!!!
+                  </div>
+                )}
               </div>
-            )}
+            }
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@ type ProductListProps = {
   Products: {
     id: number;
     nama: string;
+    stock: number;
     deskripsi: string;
     imageURL: string;
   }[];
@@ -24,6 +25,7 @@ const ProductList: React.FC<ProductListProps> = ({
           <ProductCard
             key={product.id}
             id={product.id}
+            stock={product.stock}
             nama={product.nama}
             deskripsi={product.deskripsi}
             imageURL={product.imageURL}

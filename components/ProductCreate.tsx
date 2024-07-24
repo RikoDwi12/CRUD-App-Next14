@@ -96,13 +96,21 @@ const ProductCreate: React.FC<ProductCreateProps> = ({ onCreateProduct }) => {
                   onChange={handleChange}
                 />
               </div>
+
               <div className="text-center">
-                <button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-300 transition-colors"
-                >
-                  Tambahkan
-                </button>
+                {/* latihan */}
+                {nama !== "" && deskripsi !== "" ? (
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-300 transition-colors"
+                  >
+                    Tambahkan
+                  </button>
+                ) : (
+                  <div className="w-full bg-slate-300 text-white p-2 rounded-md ">
+                    Tambahkan
+                  </div>
+                )}
               </div>
             </form>
           </div>

@@ -20,6 +20,12 @@ const ProductEdit = ({
 
   const [formData, setFormData] = useState(initialState);
 
+  const {
+    nama: nameState,
+    deskripsi: deskripsiState,
+    imageURL: imgState,
+  } = formData;
+
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -73,11 +79,18 @@ const ProductEdit = ({
         </div>
         {/* Button */}
         <div className="flex gap-2 mt-10">
-          <input
-            type="submit"
-            value="Save"
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
-          />
+          {nameState !== "" && deskripsiState !== "" ? (
+            <input
+              type="submit"
+              value="Save"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+            />
+          ) : (
+            <div className="px-4 py-2 bg-slate-300 text-white rounded">
+              save
+            </div>
+          )}
+
           <button
             onClick={handleCancel}
             type="button"
