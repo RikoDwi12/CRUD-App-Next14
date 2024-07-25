@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
-  title: "CRUD App",
+  title: "Mobil`is Web",
   icons: {
     icon: ["/favicon.ico"],
   },
@@ -17,9 +17,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <div className="pt-[28px] lg:pt-[72px] bg-white">{children}</div>
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <div className="pt-[27] lg:pt-[72px]">{children}</div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
@@ -28,3 +35,4 @@ export default function RootLayout({
 import React from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";

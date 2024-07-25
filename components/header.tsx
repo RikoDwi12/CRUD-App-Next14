@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { ModeToggle } from "./modeToggle";
 
 export default function Header() {
   const [sidebarOpen, setSidebarOpen] = React.useState<boolean>(false); //state
@@ -61,7 +62,9 @@ export default function Header() {
             </Link>
           </div>
           <div className=" text-nowrap flex justify-center items-center rounded-full object-cover overflow-hidden">
-            <div className="bg-white"></div>
+            <div className="bg-white">
+              <ModeToggle />
+            </div>
           </div>
 
           {/* <div className=" rounded-full object-cover overflow-hidden w-[40px] h-[40px] ">
