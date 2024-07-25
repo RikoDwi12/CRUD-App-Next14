@@ -2,9 +2,12 @@
 
 import HomeCard from "@/components/HomeCard";
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
-export default function page() {
+export default function Page() {
+  const router = useRouter();
+
   return (
     <>
       {/* wrap konten */}
@@ -23,17 +26,16 @@ export default function page() {
           </div>
 
           {/* kiri */}
-          <div className=" w-2/5 relative z-10 py-[48px]">
+          <div className="w-2/5 relative z-10 py-[48px]">
             <h1 className="text-[52px] font-bold text-black flex justify-start items-center">
               Find Your Dream
             </h1>
-            <div className="flex flex-row gap-[41px] justify-start ">
+            <div className="flex flex-row gap-[41px] justify-start">
               <h2 className="text-[72px] font-bold text-red-700">CAR</h2>
               <div className="flex justify-center items-center">
                 <button
-                  onClick={() => (window.location.href = "/explore")}
-                  className="flex items-center justify-center px-4 py-2 bg-indigo-900 text-white rounded-full shadow-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50
-                "
+                  onClick={() => router.push("/home/explore")}
+                  className="flex items-center justify-center px-4 py-2 bg-indigo-900 text-white rounded-full shadow-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
                 >
                   Click Now
                   <svg
@@ -68,24 +70,51 @@ export default function page() {
         </div>
 
         {/* konten 2 */}
-        <div className=" flex flex-row justify-center items-center">
+        <div className="flex flex-row justify-center items-center">
           <hr className="border-1 border-slate-500 w-full" />
           <h1 className="text-[64px] font-bold text-black">Brand`s</h1>
           <hr className="border-1 border-slate-500 w-full" />
         </div>
+
         {/* konten 3 */}
         <div className="flex flex-row gap-[49px] justify-center items-center">
-          <Image src="/logo-honda.png" alt="" width={152} height={130} />
-          <Image src="/logo-ferari.png" alt="" width={152} height={130} />
-          <Image src="/logo-tesla.png" alt="" width={152} height={130} />
-          <Image src="/logo-toyota.png" alt="" width={152} height={130} />
-          <Image src="/logo-honda.png" alt="" width={152} height={130} />
+          <Image
+            src="/logo-honda.png"
+            alt="logo honda"
+            width={152}
+            height={130}
+          />
+          <Image
+            src="/logo-ferari.png"
+            alt="logo ferari"
+            width={152}
+            height={130}
+          />
+          <Image
+            src="/logo-tesla.png"
+            alt="logo tesla"
+            width={152}
+            height={130}
+          />
+          <Image
+            src="/logo-toyota.png"
+            alt="logo toyota"
+            width={152}
+            height={130}
+          />
+          <Image
+            src="/logo-honda.png"
+            alt="logo honda"
+            width={152}
+            height={130}
+          />
         </div>
       </div>
+
       {/* konten 1-2 */}
       <div className="px-[210px] py-[80px]">
         <div className="flex flex-col gap-[40px]">
-          <div className=" flex flex-row justify-center items-center">
+          <div className="flex flex-row justify-center items-center">
             <hr className="border-1 border-slate-500 w-1/12" />
             <h1 className="text-[36px] font-bold text-gray-500 text-nowrap">
               About Us
@@ -93,10 +122,11 @@ export default function page() {
             <hr className="border-1 border-slate-500 w-1/12" />
           </div>
           <div className="flex justify-center items-center text-gray-500">
-            we Provide many of the best servises for you and you will get the
-            best benefits here
+            We provide many of the best services for you and you will get the
+            best benefits here.
           </div>
         </div>
+
         {/* card */}
         <div className="flex flex-row gap-[27px] mt-[80px]">
           <HomeCard />
